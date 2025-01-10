@@ -11,9 +11,20 @@
     <div class="enter">
         <img src="/static/images/logo.svg" alt="DYSOON.CLUB" width="25%">
         <img src="/static/images/strips.svg" alt="DYSOON.CLUB" width="25%">
-        <img src="/static/images/begin_racing.svg" alt="DYSOON.CLUB" width="25%">
+        <img src="/static/images/begin_racing.svg" id="enter" alt="DYSOON.CLUB" width="25%">
         <img src="/static/images/strips.svg" alt="DYSOON.CLUB" width="25%">
     </div>
+    <script>
+        document.getElementById('enter').onclick = function() {
+            window.location.href = '/home';
+        }
+        document.getElementById('enter').onmouseover = function() {
+            document.getElementById('enter').src = '/static/images/begin_racing_underline.svg';
+        }
+        document.getElementById('enter').onmouseleave = function() {
+            document.getElementById('enter').src = '/static/images/begin_racing.svg';
+        }
+    </script>
     <p>&copy; 1999 DYSOON.CLUB</p>
 </body>
 
