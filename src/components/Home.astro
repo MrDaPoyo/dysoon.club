@@ -1,9 +1,12 @@
 ---
-import DysoonLogo from './Logo.svelte';
+import DysoonLogo from '../assets/images/logo.svg';
 ---
 
 <main>
-	<DysoonLogo id="logo" />
+	<img src={DysoonLogo.src} id="logo" 
+	transition:persist="true"
+	transition:name="logo"
+	/>
 	<style>
 		main {
 			height: 100vh;

@@ -1,22 +1,126 @@
 ---
-import DysoonLogo from './Logo.svelte';
+import logoImage from '../assets/images/logo.svg';
+import beginRacing from '../assets/images/begin_racing.svg';
+import strips from '../assets/images/strips.svg';
 ---
 
 <main>
-	<DysoonLogo full/>
-	<style>
-		main {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			height: 100vh;
-			margin: 0;
-			padding: 0;
-			overflow: hidden;
-		}
-		#logo {
-			height: 50vh;
-		}
-	</style>
-</main>
+	<div class="full">
+        <img src={logoImage.src} alt="DYSOON.CLUB GO GO GOOOO!!!!!" transition:persist transition:animate="slide"
+		transition:name="logo"/>
+        <div class="marquee">
+            <div class="trackLeft">
+                <div class="content">
+                    <div class="strip">
+                        <img src={strips.src} alt="DYSOON.CLUB GO GO GOOOO!!!!!" margin="0" />
+                        <img src={strips.src} alt="DYSOON.CLUB GO GO GOOOO!!!!!" margin="0" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .marquee {
+                position: relative;
+                width: 100vw;
+                max-width: 100%;
+                height: 6vh;
+                overflow-x: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .trackLeft {
+                position: absolute;
+                white-space: nowrap;
+                will-change: transform;
+                animation: marquee 10s linear infinite;
+                display: flex;
+                flex-direction: row;
+            }
+
+            .trackRight {
+                position: absolute;
+                white-space: nowrap;
+                will-change: transform;
+                animation: marquee 10s linear infinite reverse;
+                display: flex;
+                flex-direction: row;
+            }
+
+            @keyframes marquee {
+                from {
+                    transform: translateX(0);
+                }
+                to {
+                    transform: translateX(-50%);
+                }
+            }
+
+            .strip {
+                display: inline-block;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+                align-items: center;
+
+            }
+
+            .strip img {
+                margin: 0;
+            }
+        </style>
+        <a href="/home">
+			<img
+				src={beginRacing.src}
+				id="beginRacing"
+				alt="DYSOON.CLUB GO GO GOOOO!!!!!"
+            />
+        </a>
+        <div class="marquee">
+            <div class="trackRight">
+                <div class="content">
+                    <div class="strip">
+                        <img src={strips.src} alt="DYSOON.CLUB GO GO GOOOO!!!!!" margin="0" />
+                        <img src={strips.src} alt="DYSOON.CLUB GO GO GOOOO!!!!!" margin="0" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .full {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 25%;
+        }
+
+        .full * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: 0.1s;
+            color: transparent;
+        }
+        button:hover {
+            filter: contrast(2);
+        }
+    </style>
+</main>	
