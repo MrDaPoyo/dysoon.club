@@ -1,14 +1,21 @@
 ---
 import DysoonLogo from './Logo.svelte';
 ---
-
-<div id="container">
-	<main>
-		<DysoonLogo full id="logo"/>
-		<style>
-			#logo {
-				height: 50vh;
-			}
-		</style>
-	</main>
-</div>
+<main>
+	<DysoonLogo full/>
+	<style>
+		main {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		#logo {
+			height: 50vh;
+		}
+	</style>
+</main>
