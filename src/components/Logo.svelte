@@ -2,7 +2,6 @@
     import logoImage from "../assets/images/logo.svg";
     import beginRacing from "../assets/images/begin_racing.svg";
     import strips from "../assets/images/strips.svg";
-    import { displayPartsToString, flattenDiagnosticMessageText } from "typescript";
     let props = $props();
 </script>
 
@@ -74,13 +73,13 @@
                 margin: 0;
             }
         </style>
-        <button on:click={navigate("/home")}>
+        <a href="/home">
             <img
                 src={beginRacing.src}
                 id="beginRacing"
                 alt="DYSOON.CLUB GO GO GOOOO!!!!!"
             />
-        </button>
+        </a>
         <div class="marquee">
             <div class="trackRight">
                 <div class="content">
@@ -117,7 +116,8 @@
             background-color: transparent;
             border: none;
             cursor: pointer;
-            transform: 1s;
+            transition: 0.1s;
+            color: transparent;
         }
         button:hover {
             filter: contrast(2);
