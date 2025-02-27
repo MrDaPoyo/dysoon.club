@@ -16,17 +16,13 @@ import Strip from "./Strip.svelte";
 </a>
 <Strip
 	left
-	style="position:absolute; top: 0; right: 0;"
 	transition:name="striptop"
 	transition:persist="true"
 	styles="position:sticky"
 />
 <Strip
 	right
-	style="position:absolute; bottom: 0; right: 0;"
 	transition:name="stripbottom"
-	transition:persist="true"
-	transition:animate="slide"
 	styles="position:absolute; bottom: 0; right: 0;"
 />
 <style>
