@@ -2,9 +2,7 @@
     import strips from "../assets/images/strips.svg";
     
     // Export props with default values
-    export let left = false;
-    export let width = 5;
-    export let length = 3;
+    let { left = false, width = 5, length = 3, styles = "" } = $props();
 </script>
 
 <style>
@@ -48,7 +46,7 @@
     }
 </style>
 
-<div class="marquee {left ? 'left' : 'right'}" style="--length: {length}" transition:persist>
+<div class="marquee {left ? 'left' : 'right'}" style="--length: {length}; {styles}" transition:persist>
     <div class="marquee-content">
         <!-- First copy of content -->
         <div class="strip">

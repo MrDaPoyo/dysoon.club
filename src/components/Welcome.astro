@@ -5,15 +5,16 @@ import Strip from './Strip.svelte';
 ---
 
 <main style="display: flex; align-items: center; justify-content: center;">
-	<div class="full">
+	<div class="full" transition:animate="slide">
         <img src={logoImage.src} alt="DYSOON.CLUB GO GO GOOOO!!!!!" transition:persist transition:animate="slide"
 		transition:name="logo"/>
-        <Strip left transition:name="striptop" />
+        <Strip left transition:persist transition:animate="slide" transition:name="striptop" />
         <a href="/home">
 			<img
 				src={beginRacing.src}
 				id="beginRacing"
 				alt="DYSOON.CLUB GO GO GOOOO!!!!!"
+                transition:animate="fade"
             />
         </a>
         <Strip right />
