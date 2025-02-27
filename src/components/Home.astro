@@ -8,6 +8,9 @@ import Strip from "./Strip.svelte";
 	id="logo"
 	transition:persist="true"
 	transition:name="logo"
+	style="transition: all 0.1s ease-in-out; transform-origin: top left;"
+		onmouseenter="this.style.transform = 'scale(1.2)';"
+		onmouseleave="this.style.transform = 'scale(1)';"
 />
 <Strip
 	left
