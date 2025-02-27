@@ -1,5 +1,6 @@
 ---
 import DysoonLogo from '../assets/images/logo.svg';
+import Strip from './Strip.svelte';
 ---
 
 <main>
@@ -7,6 +8,7 @@ import DysoonLogo from '../assets/images/logo.svg';
 	transition:persist="true"
 	transition:name="logo"
 	/>
+	<Strip left transition:name="strip_top" />
 	<style>
 		main {
 			height: 100vh;

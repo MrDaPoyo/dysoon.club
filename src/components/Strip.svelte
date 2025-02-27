@@ -1,98 +1,73 @@
 <script>
-    let props = $props();
     import strips from "../assets/images/strips.svg";
-
-    let animationDurationLeft = `marquee ${props.width * 5}s linear infinite`;
-    let animationDurationRight = `marqueereverse ${props.width * 5}s linear infinite`;
+    
+    // Export props with default values
+    export let left = false;
+    export let width = 5;
+    export let length = 3;
 </script>
 
 <style>
     .marquee {
         position: relative;
-        width: 100vw;
-        max-width: 100%;
-        height: 70px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 100%;
+        height: fit-content;
         overflow: hidden;
     }
 
-    .trackLeft {
-        position: absolute;
-        white-space: nowrap;
-        will-change: transform;
+    .marquee-content {
         display: flex;
-        flex-direction: row;
-        animation: marquee 20s linear infinite; /* Default animation */
+        width: max-content; /* Ensures content takes necessary width */
+        animation-duration: calc(20s + (var(--length) * 5s));
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
     }
 
-    .trackRight {
-        position: absolute;
-        white-space: nowrap;
-        will-change: transform;
-        display: flex;
-        flex-direction: row;
-        animation: marqueereverse 20s linear infinite; /* Default animation */
+    .left .marquee-content {
+        animation-name: scroll-left;
     }
 
-    @keyframes marquee {
-        from {
-            transform: translateX(0);
-        }
-
-        to {
-            transform: translateX(-50%);
-        }
-    }
-
-    @keyframes marqueereverse {
-        from {
-            transform: translateX(0);
-        }
-
-        to {
-            transform: translateX(50%);
-        }
+    .right .marquee-content {
+        animation-name: scroll-right;
     }
 
     .strip {
-        display: inline-block;
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
         display: flex;
         flex-direction: row;
-        justify-content: start;
         align-items: center;
     }
 
-    .strip img {
-        margin: 0;
+    @keyframes scroll-left {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-50% - 1px)); } /* Small offset to prevent gap */
+    }
+
+    @keyframes scroll-right {
+        0% { transform: translateX(calc(-50% - 1px)); }
+        100% { transform: translateX(0); }
     }
 </style>
 
-<div class="marquee">
-    {#if props.left}
-        <div class="trackLeft" style="animation: {animationDurationLeft}">
-            <div class="content">
-                <div class="strip">
-                    {#each Array(props.width) as _}
-                        <img src={strips.src} alt="DYSOON.CLUB GO GO GOOOO!!!!!" margin="0" />
-                    {/each}
-                </div>
-            </div>
+<div class="marquee {left ? 'left' : 'right'}" style="--length: {length}" transition:persist>
+    <div class="marquee-content">
+        <!-- First copy of content -->
+        <div class="strip">
+            {#each Array(width) as _}
+                <img src={strips.src} alt="DYSOON.CLUB" />
+            {/each}
+            <img src={strips.src} alt="DYSOON.CLUB" />
+            <img src={strips.src} alt="DYSOON.CLUB" />
+            <img src={strips.src} alt="DYSOON.CLUB" />
         </div>
-    {:else}
-        <div class="trackRight" style="animation: {animationDurationRight}">
-            <div class="content">
-                <div class="strip">
-                    {#each Array(props.width) as _}
-                        <img src={strips.src} alt="DYSOON.CLUB GO GO GOOOO!!!!!" margin="0" />
-                    {/each}
-                </div>
-            </div>
+        
+        <!-- Duplicate for seamless loop -->
+        <div class="strip">
+            {#each Array(width) as _}
+                <img src={strips.src} alt="DYSOON.CLUB" />
+            {/each}
+            <img src={strips.src} alt="DYSOON.CLUB" />
+            <img src={strips.src} alt="DYSOON.CLUB" />
+            <img src={strips.src} alt="DYSOON.CLUB" />
         </div>
-    {/if}
+    </div>
 </div>
