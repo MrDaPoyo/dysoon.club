@@ -8,7 +8,8 @@ import Strip from './Strip.svelte';
 	transition:persist="true"
 	transition:name="logo"
 	/>
-	<Strip left transition:name="strip_top" />
+	<Strip class="strip_top" left transition:name="striptop" transition:slide />
+	<Strip class="strip_bottom" right transition:name="stripbottom" transition:slide />
 	<style>
 		main {
 			height: 100vh;
@@ -16,12 +17,28 @@ import Strip from './Strip.svelte';
 			padding: 0;
 			overflow: hidden;
 			width: 100%;
+			background: darkred;
+		position: relative;
 		}
 		#logo {
-			height: 10vh;
+			width: 10vw;
             position: absolute;
-            top: 1vh;
-            left: 1vh;
+            top: 0;
+            left: 0;
+			z-index: 100; 
+			border-right: 10px solid darkred; 
+		}
+		.strip_top {
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 50;
+		}
+		.strip_bottom {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			z-index: 50;
 		}
 	</style>
 </main>
