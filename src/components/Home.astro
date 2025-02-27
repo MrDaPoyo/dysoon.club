@@ -5,8 +5,8 @@ import Strip from "./Strip.svelte";
 
 <a href="/">
 	<img
-	src={DysoonLogo.src}
-	id="logo"
+		src={DysoonLogo.src}
+		id="logo"
 		transition:persist="true"
 		transition:name="logo"
 		style="transition: all 0.1s ease-in-out; transform-origin: top left;"
@@ -20,6 +20,33 @@ import Strip from "./Strip.svelte";
 	transition:persist="true"
 	styles="position:sticky"
 />
+
+<main>
+	<h1>DYSOON.CLUB ゲイの友達 !!!</h1>
+	<p>
+		We are a very exclusive club of racing enjoyers located in Shibuya, Tokyo. =,)
+	</p>
+
+	<div class="grid">
+		<div class="box">
+			<h2>ABOUT</h2>
+			<p>Information about car 1.</p>
+		</div>
+		<div class="box">
+			<h2>RACE AGAINST US</h2>
+			<p>We use to run in the busy streets of Shibuya.</p>
+		</div>
+		<div class="box">
+			<h2>JOIN US</h2>
+			<p>We communicate through very own Discord.</p>
+		</div>
+		<div class="box">
+			<h2>OUR CARS</h2>
+			<p>Fast boogie boogie.</p>
+		</div>
+	</div>
+</main>
+
 <Strip
 	right
 	transition:name="stripbottom"
@@ -33,5 +60,20 @@ import Strip from "./Strip.svelte";
 		left: 0;
 		z-index: 100;
 		border-right: 10px solid red;
+	}
+	main {
+	}
+
+	.grid {
+		display: grid;
+		grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+		gap: 20px; /* Gap between boxes */
+		padding: 20px;
+	}
+
+	.box {
+		border: 5px dashed darkred;
+		padding: 20px;
+		text-align: center;
 	}
 </style>
