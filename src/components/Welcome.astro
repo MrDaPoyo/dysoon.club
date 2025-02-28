@@ -10,11 +10,12 @@ import Strip from './Strip.svelte';
 		transition:name="logo"/>
         <Strip left transition:persist transition:animate="slide" transition:name="striptop" />
         <a href="/home">
-			<img
-				src={beginRacing.src}
-				id="beginRacing"
-				alt="DYSOON.CLUB GO GO GOOOO!!!!!"
+            <img
+                src={beginRacing.src}
+                id="beginRacing"
+                alt="DYSOON.CLUB GO GO GOOOO!!!!!"
                 transition:animate="fade"
+                style="filter: brightness(1.2);"
             />
         </a>
         <Strip right transition:animate="fade" transition:persist transition:name="stripbottom" />
