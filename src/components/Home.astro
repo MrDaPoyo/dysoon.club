@@ -1,6 +1,7 @@
 ---
 import DysoonLogo from "../assets/images/logo.svg";
 import Strip from "./Strip.svelte";
+import Card from "./Card.svelte";
 ---
 
 <a href="/">
@@ -28,22 +29,22 @@ import Strip from "./Strip.svelte";
 	</p>
 
 	<div class="grid">
-		<div class="box">
+		<Card client:load>
 			<h2>ABOUT</h2>
-			<p>Information about car 1.</p>
-		</div>
-		<div class="box">
+			<p>Information about us.</p>
+		</Card>
+		<Card client:load>
 			<h2>RACE AGAINST US</h2>
 			<p>We use to run in the busy streets of Shibuya.</p>
-		</div>
-		<div class="box">
+		</Card>
+		<Card client:load>
 			<h2>JOIN US</h2>
 			<p>We communicate through very own Discord.</p>
-		</div>
-		<div class="box">
+		</Card>
+		<Card client:load>
 			<h2>OUR CARS</h2>
 			<p>Fast boogie boogie.</p>
-		</div>
+		</Card>
 	</div>
 </main>
 
@@ -69,11 +70,7 @@ import Strip from "./Strip.svelte";
 		grid-template: repeat(2, 1fr) / repeat(2, 1fr);
 		gap: 20px; /* Gap between boxes */
 		padding: 20px;
+		height: 100%;
 	}
 
-	.box {
-		border: 5px dashed darkred;
-		padding: 20px;
-		text-align: center;
-	}
 </style>
