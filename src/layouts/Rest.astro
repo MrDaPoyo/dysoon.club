@@ -1,0 +1,106 @@
+---
+import DysoonLogo from "../assets/images/logo.svg";
+import Strip from "../components/Strip.svelte";
+import { ClientRouter } from "astro:transitions";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="stylesheet" href="/css/main.css" />
+        <title>DYSOON CLUB ゲイのたわごと</title>
+        <ClientRouter />
+    </head>
+    <body>
+        <div id="top">
+            <a href="/">
+                <img
+                    src={DysoonLogo.src}
+                    id="logo"
+                    transition:persist="true"
+                    transition:name="logo"
+                    class="logo-image"
+                />
+            </a>
+            <Strip
+                left
+                transition:name="striptop"
+                transition:persist="true"
+                styles="position:sticky;"
+            />
+        </div>
+        <slot />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .full {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 25%;
+            }
+
+            .full * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                width: 100%;
+            }
+            a {
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+                transition: 0.1s;
+                color: transparent;
+            }
+            #top {
+                height: fit-content;
+                position: relative;
+            }
+
+            .logo-image {
+                height: 100%;
+                z-index: 1000;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: transform 0.2s ease-in-out;
+                transform-origin: top left;
+            }
+
+            .logo-image:hover {
+                transform: scale(1.2);
+            }
+            html,
+            body {
+                color: white;
+                height: 100vh;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                position: relative;
+                background-color: #a45a00;
+                font-weight: 600;
+                font-size: large;
+            }
+            #footer {
+                z-index: 100;
+                position: absolute;
+                bottom: 1vh;
+                right: 50%;
+                transform: translateX(50%);
+                padding: 0.5rem;
+                background-color: #a45a00;
+            }
+        </style>
+    </body>
+</html>

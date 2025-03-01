@@ -3,80 +3,21 @@ import DysoonLogo from "../assets/images/logo.svg";
 import Strip from "./Strip.svelte";
 import Card from "./Card.svelte";
 ---
-<div id="top">
-<a href="/">
-	<img
-		src={DysoonLogo.src}
-		id="logo"
-		transition:persist="true"
-		transition:name="logo"
-		style="transition: all 0.1s ease-in-out; transform-origin: top left;"
-		onmouseenter="this.style.transform = 'scale(1.2)';"
-		onmouseleave="this.style.transform = 'scale(1)';"
-	/>
-</a>
-<Strip
-	left
-	transition:name="striptop"
-	transition:persist="true"
-	styles="position:sticky"
-/>
-</div>
 <main>
 	<h1>DYSOON.CLUB ゲイの友達 !!!</h1>
 	<p>
 		We are a very exclusive club of racing enjoyers located in Shibuya, Tokyo. =,)
 	</p>
 
-	<div class="grid">
-		<Card client:load>
-			<h2>ABOUT</h2>
-			<p>Information about us.</p>
-		</Card>
-		<Card client:load>
-			<h2>RACE AGAINST US</h2>
-			<p>We use to run in the busy streets of Shibuya.</p>
-		</Card>
-		<Card client:load>
-			<h2>JOIN US</h2>
-			<p>We communicate through very own Discord.</p>
-		</Card>
-		<Card client:load>
-			<h2>OUR CARS</h2>
-			<p>Fast boogie boogie.</p>
-		</Card>
+	{
+		(await Astro.glob('../pages/pages/*.md')).map((post) => (
+			<a href={`/pages/${post.file.split('/').pop().replace('.md', '')}`} style="text-decoration: none; color: white;">
+				<Card client:load>
+					<h2>{post.frontmatter.title || 'Untitled'}</h2>
+					<p>{post.frontmatter.description || 'No description'}</p>
+				</Card>
+			</a>
+		))
+	}
 	</div>
 </main>
-
-<Strip
-	right
-	transition:name="stripbottom"
-	styles="position:absolute; bottom: 0; right: 0;"
-/>
-<style>
-	#top {
-		position: sticky;
-		top: 0;
-		z-index: 100;
-		height: fit-content;
-	}
-	#logo {
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 100;
-		border-right: 10px solid #A45A00;
-		background-color: #A45A00;
-	}
-
-
-	.grid {
-		display: grid;
-		grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-		gap: 20px; /* Gap between boxes */
-		padding: 20px;
-		height: 100%;
-	}
-
-</style>
