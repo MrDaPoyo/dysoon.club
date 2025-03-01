@@ -38,14 +38,12 @@
         width: 100%;
         height: 100%;
         padding: 1vh;
-        background-image: url('../assets/images/favicon.svg');
-        background-repeat: repeat;
-        background-size: 5vh;
+        background-color: #A45A00;
         border-radius: 10px;
         transform-style: preserve-3d;
         transition: transform 0.1s ease-out;
         overflow: hidden;
-        border: 3px solid red;
+        border: 1px dashed white;
     }
 
     .shine {

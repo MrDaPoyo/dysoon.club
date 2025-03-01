@@ -9,20 +9,20 @@
 </g>
 <defs>
 <linearGradient id="paint0_linear_11_2" x1="349.5" y1="-6" x2="349.5" y2="120" gradientUnits="userSpaceOnUse">
-<stop stop-color="#E50000"/>
-<stop offset="1" stop-color="#A40000"/>
+<stop stop-color="#FF8C00"/>
+<stop offset="1" stop-color="#A45A00"/>
 </linearGradient>
 <linearGradient id="paint1_linear_11_2" x1="349.5" y1="-6" x2="349.5" y2="120" gradientUnits="userSpaceOnUse">
-<stop stop-color="#E50000"/>
-<stop offset="1" stop-color="#A40000"/>
+<stop stop-color="#FF8C00"/>
+<stop offset="1" stop-color="#A45A00"/>
 </linearGradient>
 <linearGradient id="paint2_linear_11_2" x1="349.5" y1="-3" x2="349.5" y2="124" gradientUnits="userSpaceOnUse">
-<stop stop-color="#E50000"/>
-<stop offset="1" stop-color="#A40000"/>
+<stop stop-color="#FF8C00"/>
+<stop offset="1" stop-color="#A45A00"/>
 </linearGradient>
 <linearGradient id="paint3_linear_11_2" x1="349.5" y1="-3" x2="349.5" y2="124" gradientUnits="userSpaceOnUse">
-<stop stop-color="#E50000"/>
-<stop offset="1" stop-color="#A40000"/>
+<stop stop-color="#FF8C00"/>
+<stop offset="1" stop-color="#A45A00"/>
 </linearGradient>
 <clipPath id="clip0_11_2">
 <rect width="700" height="127" fill="white"/>
